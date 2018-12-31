@@ -10,8 +10,8 @@
 		FE59BE7221D94998006EA7CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE59BE7121D94998006EA7CC /* AppDelegate.swift */; };
 		FE59BE7421D94998006EA7CC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE59BE7321D94998006EA7CC /* ViewController.swift */; };
 		FE59BE7721D94998006EA7CC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE59BE7521D94998006EA7CC /* Main.storyboard */; };
-		FE59BE7921D94999006EA7CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE59BE7821D94999006EA7CC /* Assets.xcassets */; };
 		FE59BE7C21D94999006EA7CC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE59BE7A21D94999006EA7CC /* LaunchScreen.storyboard */; };
+		FE59BE8D21D94DF6006EA7CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE59BE8C21D94DF6006EA7CC /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,9 +19,9 @@
 		FE59BE7121D94998006EA7CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FE59BE7321D94998006EA7CC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FE59BE7621D94998006EA7CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		FE59BE7821D94999006EA7CC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FE59BE7B21D94999006EA7CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FE59BE7D21D94999006EA7CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FE59BE8C21D94DF6006EA7CC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "../../../../GDC e requisições de rede/fromGithub/ios-nd-networking/TheMovieManagerComplete/TheMovieManager/Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +54,54 @@
 		FE59BE7021D94998006EA7CC /* on the map */ = {
 			isa = PBXGroup;
 			children = (
+				FE59BE8721D94BFE006EA7CC /* Supporting Files */,
+				FE59BE8621D94BD1006EA7CC /* Controller */,
+				FE59BE8521D94BCB006EA7CC /* View */,
+				FE59BE8421D94BC5006EA7CC /* Model */,
+				FE59BE8321D94BBE006EA7CC /* Assets */,
 				FE59BE7121D94998006EA7CC /* AppDelegate.swift */,
-				FE59BE7321D94998006EA7CC /* ViewController.swift */,
-				FE59BE7521D94998006EA7CC /* Main.storyboard */,
-				FE59BE7821D94999006EA7CC /* Assets.xcassets */,
-				FE59BE7A21D94999006EA7CC /* LaunchScreen.storyboard */,
-				FE59BE7D21D94999006EA7CC /* Info.plist */,
 			);
 			path = "on the map";
+			sourceTree = "<group>";
+		};
+		FE59BE8321D94BBE006EA7CC /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				FE59BE8C21D94DF6006EA7CC /* Assets.xcassets */,
+				FE59BE7521D94998006EA7CC /* Main.storyboard */,
+				FE59BE7A21D94999006EA7CC /* LaunchScreen.storyboard */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		FE59BE8421D94BC5006EA7CC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FE59BE8521D94BCB006EA7CC /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FE59BE8621D94BD1006EA7CC /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FE59BE7321D94998006EA7CC /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		FE59BE8721D94BFE006EA7CC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FE59BE7D21D94999006EA7CC /* Info.plist */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -123,7 +163,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FE59BE7C21D94999006EA7CC /* LaunchScreen.storyboard in Resources */,
-				FE59BE7921D94999006EA7CC /* Assets.xcassets in Resources */,
+				FE59BE8D21D94DF6006EA7CC /* Assets.xcassets in Resources */,
 				FE59BE7721D94998006EA7CC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -284,7 +324,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3TBYKSQUS6;
-				INFOPLIST_FILE = "on the map/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/on the map/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,7 +342,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3TBYKSQUS6;
-				INFOPLIST_FILE = "on the map/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/on the map/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
