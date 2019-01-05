@@ -33,16 +33,39 @@ class LoginViewController: UIViewController {
     // MARK: Actions
     
     @IBAction func loginPressed(_ sender: Any) {
+        errorTextLabel.text = ""
         
+        guard let email = emailTextField.text, !email.isEmpty else {
+            displayError("Email is requerid")
+            return
+        }
+        
+        guard let password = passwordTextField.text, !password.isEmpty else {
+            displayError("Password is requerid")
+            return
+        }
+        
+        self.setUIEnable(false)
+        
+        UdacityClient.sharedInstance().authenticate(email: email, password: password) { (success, errorString) in
+            DispatchQueue.main.async {
+                if success {
+                    self.completeLogin()
+                } else {
+                    self.displayError(errorString)
+                }
+                self.setUIEnable(true)
+            }
+        }
     }
     
     @IBAction func signUpPressed(_ sender: Any) {
-        guard let url = URL(string: "https://udacity.com") else { return }
+        guard let url = URL(string: UdacityClient.Constants.SignUpURL) else { return }
         UIApplication.shared.open(url)
     }
     
     private func completeLogin() {
-        errorTextLabel.text = ""
+        
     }
 }
 
