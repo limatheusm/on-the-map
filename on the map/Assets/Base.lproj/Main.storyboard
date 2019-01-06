@@ -115,8 +115,101 @@
             </objects>
             <point key="canvasLocation" x="132" y="133.00492610837438"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="NhN-ws-6p7">
+            <objects>
+                <viewController id="hJ9-aO-uSZ" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OTA-5u-jl4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="N63-SC-BVL"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="icon_mapview-deselected" selectedImage="icon_mapview-selected" id="cvj-TN-NY9"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hJ3-cV-3bf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3044" y="-169"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="BzM-J0-DVA">
+            <objects>
+                <navigationController storyboardIdentifier="ManagerNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="8Va-8E-Bbo" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="sJ2-fe-7l2">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Nsu-kB-aUQ" kind="relationship" relationship="rootViewController" id="M0f-p3-FEs"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="79E-BO-eAA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1100" y="133"/>
+        </scene>
+        <!--On the Map-->
+        <scene sceneID="fR0-yA-2tp">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Nsu-kB-aUQ" customClass="TabBarController" customModule="on_the_map" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="On the Map" id="Sqc-cc-dsM">
+                        <barButtonItem key="leftBarButtonItem" title="LOGOUT" id="Uqa-SV-kku">
+                            <connections>
+                                <action selector="logoutPressed:" destination="Nsu-kB-aUQ" id="Ag2-PP-lw8"/>
+                            </connections>
+                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem image="icon_addpin" id="iO5-96-rox">
+                                <connections>
+                                    <action selector="addPinPressed:" destination="Nsu-kB-aUQ" id="IZY-YU-oDi"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="icon_refresh" id="eUh-qI-gi8">
+                                <connections>
+                                    <action selector="refreshPressed:" destination="Nsu-kB-aUQ" id="u0P-vA-Opy"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="d8r-6p-D5E">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="hJ9-aO-uSZ" kind="relationship" relationship="viewControllers" id="GXZ-Mv-9v4"/>
+                        <segue destination="Yfy-xD-3vp" kind="relationship" relationship="viewControllers" id="vA4-oJ-ZC1"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jl3-GA-IaC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1986" y="132"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="f4M-M5-pkD">
+            <objects>
+                <viewController id="Yfy-xD-3vp" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Z0e-Y6-CxL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="bU4-dZ-htu"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="icon_listview-deselected" selectedImage="icon_listview-selected" id="EHL-g1-MuO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1S8-g7-fyb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3044" y="554"/>
+        </scene>
     </scenes>
     <resources>
         <image name="LaunchLogo" width="80" height="80"/>
+        <image name="icon_addpin" width="24" height="24"/>
+        <image name="icon_listview-deselected" width="75" height="50"/>
+        <image name="icon_listview-selected" width="75" height="50"/>
+        <image name="icon_mapview-deselected" width="75" height="50"/>
+        <image name="icon_mapview-selected" width="75" height="50"/>
+        <image name="icon_refresh" width="24" height="24"/>
     </resources>
 </document>

@@ -10,6 +10,42 @@ import Foundation
 
 extension UdacityClient {
     
+    // MARK: Logout
+    func logout(completion: @escaping (_ success: Bool, _ errorString: String?) -> Void) {
+        let parameters: [String:AnyObject] = [:]
+        let method = Methods.Session
+        let request = NSMutableURLRequest(url: self.createURLFromParameters(parameters, withPathExtension: method))
+        request.httpMethod = "DELETE"
+        
+        // MARK: Cookie step
+        var xsrfCookie: HTTPCookie? = nil
+        let sharedCookieStorage = HTTPCookieStorage.shared
+        
+        for cookie in sharedCookieStorage.cookies! {
+            if cookie.name == Cookie.Name {
+                print(cookie)
+                xsrfCookie = cookie
+                break
+            }
+        }
+        
+        if let xsrfCookie = xsrfCookie {
+            request.setValue(xsrfCookie.value, forHTTPHeaderField: Cookie.HTTPHeaderField as String)
+        }
+        
+        // MARK: Request step
+        let task = self.session.dataTask(with: request as URLRequest) { (data, response, error) in
+            if error != nil { // Handle error…
+                completion(false, "Logout failed")
+                return
+            }
+
+            completion(true, nil)
+        }
+        
+        task.resume()
+    }
+    
     // MARK: Authentication
     func authenticate(email: String, password: String, completionHandlerForAuth: @escaping (_ success: Bool, _ errorString: String?) -> Void) {
         let parameters: [String:AnyObject] = [:]
@@ -85,4 +121,6 @@ extension UdacityClient {
             completion(true, nil)
         }
     }
+    
+    
 }

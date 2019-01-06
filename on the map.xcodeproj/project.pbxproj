@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FE4E62D221E2A2AF0001BB5E /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4E62D121E2A2AF0001BB5E /* TabBarController.swift */; };
 		FE59BE7221D94998006EA7CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE59BE7121D94998006EA7CC /* AppDelegate.swift */; };
 		FE59BE7421D94998006EA7CC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE59BE7321D94998006EA7CC /* LoginViewController.swift */; };
 		FE59BE7721D94998006EA7CC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE59BE7521D94998006EA7CC /* Main.storyboard */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FE4E62D121E2A2AF0001BB5E /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		FE59BE6E21D94998006EA7CC /* on the map.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "on the map.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE59BE7121D94998006EA7CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FE59BE7321D94998006EA7CC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				FE59BE7321D94998006EA7CC /* LoginViewController.swift */,
+				FE4E62D121E2A2AF0001BB5E /* TabBarController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -215,6 +218,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FEDAAD1921DD631B00AA3346 /* ParseClient.swift in Sources */,
+				FE4E62D221E2A2AF0001BB5E /* TabBarController.swift in Sources */,
 				FEDAAD1521DD116200AA3346 /* UdacityClient.swift in Sources */,
 				FE59BE7421D94998006EA7CC /* LoginViewController.swift in Sources */,
 				FE59BE7221D94998006EA7CC /* AppDelegate.swift in Sources */,

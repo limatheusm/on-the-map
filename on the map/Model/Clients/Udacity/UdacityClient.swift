@@ -144,7 +144,6 @@ class UdacityClient: NSObject {
         return task
     }
     
-    
     // MARK: Shared Instance
     class func sharedInstance() -> UdacityClient {
         struct Singleton {
@@ -182,7 +181,7 @@ extension UdacityClient {
     }
     
     // create a URL from parameters
-    private func createURLFromParameters(_ parameters: [String:AnyObject], withPathExtension: String? = nil) -> URL {
+    func createURLFromParameters(_ parameters: [String:AnyObject], withPathExtension: String? = nil) -> URL {
         
         var components = URLComponents()
         components.scheme = UdacityClient.Constants.ApiScheme

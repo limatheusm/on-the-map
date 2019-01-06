@@ -46,6 +46,7 @@ class LoginViewController: UIViewController {
         }
         
         self.setUIEnable(false)
+        self.view.endEditing(true)
         
         UdacityClient.sharedInstance().authenticate(email: email, password: password) { (success, errorString) in
             DispatchQueue.main.async {
@@ -65,7 +66,11 @@ class LoginViewController: UIViewController {
     }
     
     private func completeLogin() {
-        
+        errorTextLabel.text = ""
+        emailTextField.text = ""
+        passwordTextField.text = ""
+        let controller = storyboard!.instantiateViewController(withIdentifier: "ManagerNavigationController") as! UINavigationController
+        present(controller, animated: true, completion: nil)
     }
 }
 

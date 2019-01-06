@@ -65,8 +65,9 @@ extension UdacityClient {
         static let ErrorMessage = "error"
     }
     
-    struct Cookies {
-        static let token = "X-XSRF-TOKEN"
+    struct Cookie {
+        static let Name = "XSRF-TOKEN"
+        static let HTTPHeaderField = "X-XSRF-TOKEN"
     }
     
 }
