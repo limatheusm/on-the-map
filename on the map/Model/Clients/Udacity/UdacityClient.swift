@@ -12,9 +12,9 @@ class UdacityClient: NSObject {
     
     // MARK: Properties
     var session = URLSession.shared
-//    var sessionID: String? = nil
-    var sessionID: String? = "2312231"
-    var nickname: String? = nil
+    var sessionID: String? = nil
+    var firstName: String? = nil
+    var lastName: String? = nil
     
     // MARK: GET
     func taskForGETMethod(_ method: String, parameters: [String:AnyObject], completionHandlerForGET: @escaping (_ result: AnyObject?, _ error: NSError?) -> Void) -> URLSessionDataTask {
@@ -48,7 +48,7 @@ class UdacityClient: NSObject {
                 return
             }
             
-            /* GUARD: statusCode out of range? */
+            /* GUARD: statusCode out of range? Try to get server message */
             guard statusCode >= 200 && statusCode <= 299 else {
                 self.convertDataWithCompletionHandler(data, completionHandlerForConvertData: { (result, error) in
                     guard (error == nil) else {

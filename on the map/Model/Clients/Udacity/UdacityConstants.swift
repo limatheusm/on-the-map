@@ -57,10 +57,8 @@ extension UdacityClient {
         static let AccountRegistered = "registered"
         
         // MARK: User
-//        static let UserFirstName = "first_name"
-//        static let UserLastName = "last_name"
-        static let User = "user"
-        static let Nickname = "nickname"
+        static let UserFirstName = "first_name"
+        static let UserLastName = "last_name"
         
         // MARK: Error
         static let StatusCode = "status"

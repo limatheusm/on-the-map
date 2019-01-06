@@ -21,12 +21,28 @@ extension UdacityClient {
                         }
                         """
         let _ = taskForPOSTMethod(Methods.Session, parameters: parameters, jsonBody: jsonBody) { (results, error) in
+            func sendError(_ errorString: String) {
+                print(errorString)
+                completionHandlerForAuth(false, errorString)
+            }
+            
             guard (error == nil) else {
-                completionHandlerForAuth(false, error!.localizedDescription)
+                sendError(error!.localizedDescription)
                 return
             }
             
-            print(results ?? "")
+            guard let session = results?[JSONResponseKeys.Session] as? [String:AnyObject] else {
+                sendError("Could not find \(JSONResponseKeys.Session)")
+                return
+            }
+            
+            guard let sessionID = session[JSONResponseKeys.SessionID] as? String else {
+                sendError("Could not find \(JSONResponseKeys.SessionID)")
+                return
+            }
+            
+            UdacityClient.sharedInstance().sessionID = sessionID
+            
             self.getUserInfo(completion: completionHandlerForAuth)
         }
     }
@@ -44,22 +60,28 @@ extension UdacityClient {
         mutableMethod = substituteKeyInMethod(mutableMethod, key: URLKeys.UserID, value: sessionID)!
 
         let _ = taskForGETMethod(mutableMethod, parameters: parameters) { (results, error) in
+            func sendError(_ errorString: String) {
+                print(errorString)
+                completion(false, errorString)
+            }
+            
             guard (error == nil) else {
-                completion(false, error!.localizedDescription)
+                sendError(error!.localizedDescription)
                 return
             }
-            
-            guard let user = results?[JSONResponseKeys.User] as? [String:AnyObject] else {
-                completion(false, "Could not find \(JSONResponseKeys.User)")
+
+            guard let firstName = results?[JSONResponseKeys.UserFirstName] as? String else {
+                sendError("Could not find \(JSONResponseKeys.UserFirstName)")
                 return
             }
-            
-            guard let nickname = user[JSONResponseKeys.Nickname] as? String else {
-                completion(false, "Could not find \(JSONResponseKeys.Nickname)")
+
+            guard let lastName = results?[JSONResponseKeys.UserLastName] as? String else {
+                sendError("Could not find \(JSONResponseKeys.UserLastName)")
                 return
             }
-            
-            UdacityClient.sharedInstance().nickname = nickname
+
+            UdacityClient.sharedInstance().firstName = firstName
+            UdacityClient.sharedInstance().lastName = lastName
             completion(true, nil)
         }
     }
