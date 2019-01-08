@@ -13,12 +13,18 @@ extension ParseClient {
         
         // MARK: API Keys
         static let ApplicationID = "QrX47CA9cyuGewLdsL7o5Eb8iug6Em8ye0dnAbIr"
-        static let RestApiKey = "QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY"
+        static let RestAPIKey = "QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY"
         
         // MARK: URLs
         static let ApiScheme = "https"
         static let ApiHost = "parse.udacity.com"
         static let ApiPath = "/parse/classes"
+    }
+    
+    // MARK: Header Fields
+    struct HeaderFields {
+        static let ApplicationID = "X-Parse-Application-Id"
+        static let RestAPIKey = "X-Parse-REST-API-Key"
     }
     
     // MARK: URL Keys
@@ -29,7 +35,7 @@ extension ParseClient {
     // MARK: Methods
     struct Methods {
         static let StudentLocation = "/StudentLocation"
-        static let StudentLocationID = "/StudentLocation/{\(ParseClient.URLKeys.StudentLocationID)}"
+        static let StudentLocationID = "/StudentLocation/{\(URLKeys.StudentLocationID)}"
     }
     
     // MARK: Parameter Keys

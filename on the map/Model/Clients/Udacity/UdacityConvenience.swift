@@ -23,7 +23,6 @@ extension UdacityClient {
         
         for cookie in sharedCookieStorage.cookies! {
             if cookie.name == Cookie.Name {
-                print(cookie)
                 xsrfCookie = cookie
                 break
             }
