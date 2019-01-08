@@ -21,6 +21,10 @@ class MapViewController: UIViewController {
     }
     
     func fetchAndPopulatePoints() {
+        /* Clear annotations */
+        if !self.mapView.annotations.isEmpty { self.mapView.removeAnnotations(self.mapView.annotations) }
+        
+        /* Fetch locations */
         ParseClient.sharedInstance().getStudentsLocation { (studentsLocation, errorString) in
             guard (errorString == nil) else {
                 print(errorString!)

@@ -30,8 +30,9 @@ class TabBarController: UITabBarController {
         }
     }
     
-    @IBAction func refreshPressed(_ sender: UIBarButtonItem) {
-        print("refreshPressed")
+    @IBAction func refreshPressed(_ sender: Any) {
+        guard let mapViewController = self.viewControllers?[0] as? MapViewController else { return }
+        mapViewController.fetchAndPopulatePoints()
     }
     
     @IBAction func addPinPressed(_ sender: UIBarButtonItem) {

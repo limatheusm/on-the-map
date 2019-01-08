@@ -182,7 +182,7 @@
                             </barButtonItem>
                             <barButtonItem image="icon_refresh" id="eUh-qI-gi8">
                                 <connections>
-                                    <action selector="refreshPressed:" destination="Nsu-kB-aUQ" id="u0P-vA-Opy"/>
+                                    <action selector="refreshPressed:" destination="Nsu-kB-aUQ" id="LZ4-9J-p7V"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
