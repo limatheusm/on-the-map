@@ -29,13 +29,13 @@ extension ParseClient {
     
     // MARK: URL Keys
     struct URLKeys {
-        static let StudentLocationID = "objectId"
+        static let StudentLocationObjectID = "objectId"
     }
     
     // MARK: Methods
     struct Methods {
         static let StudentLocation = "/StudentLocation"
-        static let StudentLocationID = "/StudentLocation/{\(URLKeys.StudentLocationID)}"
+        static let StudentLocationObjectID = "/StudentLocation/{\(URLKeys.StudentLocationObjectID)}"
     }
     
     // MARK: Parameter Keys
@@ -69,5 +69,10 @@ extension ParseClient {
         static let mediaURL = "mediaURL"
         static let latitude = "latitude"
         static let longitude = "longitude"
+    }
+    
+    // MARK: String Messages
+    struct Messages {
+        static let askOverwriteStudentLocation = "You have already posted a Student Location. Would you like to overwrite your current location?"
     }
 }

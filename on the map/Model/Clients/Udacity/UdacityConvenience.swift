@@ -76,7 +76,18 @@ extension UdacityClient {
                 return
             }
             
+            guard let account = results?[JSONResponseKeys.Account] as? [String:AnyObject] else {
+                sendError("Could not find \(JSONResponseKeys.Account)")
+                return
+            }
+            
+            guard let accountKey = account[JSONResponseKeys.AccountKey] as? String else {
+                sendError("Could not find \(JSONResponseKeys.AccountKey)")
+                return
+            }
+            
             UdacityClient.sharedInstance().sessionID = sessionID
+            UdacityClient.sharedInstance().accountKey = accountKey
             
             self.getUserInfo(completion: completionHandlerForAuth)
         }

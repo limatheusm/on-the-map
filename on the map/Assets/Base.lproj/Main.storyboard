@@ -143,7 +143,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hJ3-cV-3bf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3044" y="-169.21182266009853"/>
+            <point key="canvasLocation" x="3682" y="-166"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="BzM-J0-DVA">
@@ -177,7 +177,7 @@
                         <rightBarButtonItems>
                             <barButtonItem image="icon_addpin" id="iO5-96-rox">
                                 <connections>
-                                    <action selector="addPinPressed:" destination="Nsu-kB-aUQ" id="IZY-YU-oDi"/>
+                                    <action selector="addPinPressed:" destination="Nsu-kB-aUQ" id="Big-OX-6Io"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem image="icon_refresh" id="eUh-qI-gi8">
@@ -193,6 +193,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
+                        <outlet property="addPinButton" destination="iO5-96-rox" id="TvI-IQ-Ari"/>
                         <segue destination="hJ9-aO-uSZ" kind="relationship" relationship="viewControllers" id="GXZ-Mv-9v4"/>
                         <segue destination="Yfy-xD-3vp" kind="relationship" relationship="viewControllers" id="vA4-oJ-ZC1"/>
                     </connections>
@@ -215,7 +216,135 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1S8-g7-fyb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3044" y="554"/>
+            <point key="canvasLocation" x="3682" y="557"/>
+        </scene>
+        <!--Add Location View Controller-->
+        <scene sceneID="i2Y-i1-aKu">
+            <objects>
+                <viewController storyboardIdentifier="AddLocationViewController" id="4W5-v8-DM0" customClass="AddLocationViewController" customModule="on_the_map" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="H4E-cB-7RL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5jx-JD-sQi">
+                                <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Add Location" id="Cg6-Qb-3Fe">
+                                        <barButtonItem key="leftBarButtonItem" title="CANCEL" id="O1e-xF-CDw">
+                                            <connections>
+                                                <action selector="cancelPressed:" destination="4W5-v8-DM0" id="xfG-As-hwd"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_world" translatesAutoresizingMaskIntoConstraints="NO" id="eZT-O3-2s9">
+                                <rect key="frame" x="161.66666666666666" y="142" width="52" height="67"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="hu4-EQ-lph">
+                                <rect key="frame" x="16" y="253" width="343" height="142"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a location" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="CwX-Ue-lvy">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="9a4-5O-GTX"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a Website" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Ga4-Jw-IVw">
+                                        <rect key="frame" x="0.0" y="48" width="343" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="ghE-Kd-Lbo"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Apx-yo-Gio">
+                                        <rect key="frame" x="0.0" y="96" width="343" height="46"/>
+                                        <color key="backgroundColor" red="0.0078431372550000003" green="0.70196078429999997" blue="0.89411764709999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="46" id="ul7-GQ-Akg"/>
+                                        </constraints>
+                                        <state key="normal" title="FIND LOCATION">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="findLocationPressed:" destination="4W5-v8-DM0" eventType="touchUpInside" id="O57-Lp-I16"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SJF-4v-M2d">
+                                <rect key="frame" x="183.66666666666666" y="224" width="7.6666666666666572" height="20.333333333333343"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.86002934639999995" green="0.048254249399999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="A6c-3G-yFj">
+                                <rect key="frame" x="0.0" y="414" width="375" height="398"/>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cbe-TR-RCs">
+                                <rect key="frame" x="16" y="716" width="343" height="46"/>
+                                <color key="backgroundColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="46" id="765-pW-sdF"/>
+                                </constraints>
+                                <state key="normal" title="SUBMIT">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="submitPressed:" destination="4W5-v8-DM0" eventType="touchUpInside" id="dBA-El-oew"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="eZT-O3-2s9" firstAttribute="centerX" secondItem="H4E-cB-7RL" secondAttribute="centerX" id="0NM-Jd-liM"/>
+                            <constraint firstItem="eKj-g8-WOS" firstAttribute="trailing" secondItem="cbe-TR-RCs" secondAttribute="trailing" constant="16" id="4LG-YW-Ndr"/>
+                            <constraint firstItem="SJF-4v-M2d" firstAttribute="top" secondItem="eZT-O3-2s9" secondAttribute="bottom" constant="15" id="ChS-7M-GLE"/>
+                            <constraint firstItem="eZT-O3-2s9" firstAttribute="top" secondItem="5jx-JD-sQi" secondAttribute="bottom" constant="54" id="FFN-ku-pcB"/>
+                            <constraint firstItem="A6c-3G-yFj" firstAttribute="leading" secondItem="eKj-g8-WOS" secondAttribute="leading" id="JK0-m4-roA"/>
+                            <constraint firstItem="hu4-EQ-lph" firstAttribute="centerX" secondItem="H4E-cB-7RL" secondAttribute="centerX" id="MeK-7m-dbe"/>
+                            <constraint firstItem="hu4-EQ-lph" firstAttribute="leading" secondItem="eKj-g8-WOS" secondAttribute="leading" constant="16" id="QHn-m8-xqH"/>
+                            <constraint firstItem="SJF-4v-M2d" firstAttribute="centerX" secondItem="H4E-cB-7RL" secondAttribute="centerX" id="UcE-2y-0H0"/>
+                            <constraint firstItem="5jx-JD-sQi" firstAttribute="top" secondItem="eKj-g8-WOS" secondAttribute="top" id="Y6g-hQ-u2M"/>
+                            <constraint firstItem="A6c-3G-yFj" firstAttribute="top" secondItem="hu4-EQ-lph" secondAttribute="bottom" constant="19" id="aZX-87-nMQ"/>
+                            <constraint firstItem="cbe-TR-RCs" firstAttribute="leading" secondItem="eKj-g8-WOS" secondAttribute="leading" constant="16" id="fgG-MV-kpU"/>
+                            <constraint firstItem="5jx-JD-sQi" firstAttribute="leading" secondItem="eKj-g8-WOS" secondAttribute="leading" id="h7Y-n0-FuF"/>
+                            <constraint firstItem="hu4-EQ-lph" firstAttribute="top" secondItem="eZT-O3-2s9" secondAttribute="bottom" constant="44" id="j7M-VK-eW6"/>
+                            <constraint firstItem="A6c-3G-yFj" firstAttribute="trailing" secondItem="eKj-g8-WOS" secondAttribute="trailing" id="k66-g0-g6E"/>
+                            <constraint firstItem="eKj-g8-WOS" firstAttribute="bottom" secondItem="cbe-TR-RCs" secondAttribute="bottom" constant="16" id="m0P-Is-3h6"/>
+                            <constraint firstItem="5jx-JD-sQi" firstAttribute="trailing" secondItem="eKj-g8-WOS" secondAttribute="trailing" id="qK5-Iy-yXa"/>
+                            <constraint firstItem="eKj-g8-WOS" firstAttribute="trailing" secondItem="hu4-EQ-lph" secondAttribute="trailing" constant="16" id="s1X-v2-BzT"/>
+                            <constraint firstAttribute="bottom" secondItem="A6c-3G-yFj" secondAttribute="bottom" id="vfL-QN-VKx"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="eKj-g8-WOS"/>
+                    </view>
+                    <connections>
+                        <outlet property="errorStringLabel" destination="SJF-4v-M2d" id="7MY-7s-8xG"/>
+                        <outlet property="findLocationButton" destination="Apx-yo-Gio" id="AIM-5t-NAn"/>
+                        <outlet property="locationTextField" destination="CwX-Ue-lvy" id="gr9-nb-amh"/>
+                        <outlet property="mapView" destination="A6c-3G-yFj" id="G0y-f6-agk"/>
+                        <outlet property="submitButton" destination="cbe-TR-RCs" id="XnN-im-cYY"/>
+                        <outlet property="websiteTextField" destination="Ga4-Jw-IVw" id="BUA-wR-kZh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Sow-Pi-V9W" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2776.8000000000002" y="-540.14778325123154"/>
         </scene>
     </scenes>
     <resources>
@@ -226,5 +355,6 @@
         <image name="icon_mapview-deselected" width="75" height="50"/>
         <image name="icon_mapview-selected" width="75" height="50"/>
         <image name="icon_refresh" width="24" height="24"/>
+        <image name="icon_world" width="52" height="67"/>
     </resources>
 </document>

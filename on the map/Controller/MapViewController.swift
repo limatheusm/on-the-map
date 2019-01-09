@@ -15,7 +15,13 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate = self
-        
+//
+//        /* GET the location points */
+//        self.fetchAndPopulatePoints()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         /* GET the location points */
         self.fetchAndPopulatePoints()
     }
@@ -97,7 +103,7 @@ extension MapViewController: MKMapViewDelegate {
         else {
             pinView!.annotation = annotation
         }
-        print(pinView!)
+
         return pinView
     }
     

@@ -14,10 +14,10 @@ struct StudentLocation: Codable {
     let mediaURL: String?
     let latitude: Double?
     let longitude: Double?
-    let objectId: String
+    let objectId: String?
     let userId: String?
     let uniqueKey: String?
     let mapString: String?
-    let createdAt: String
-    let updatedAt: String
+    let createdAt: String?
+    let updatedAt: String?
 }

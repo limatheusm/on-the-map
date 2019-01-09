@@ -14,6 +14,7 @@
 		FE59BE7C21D94999006EA7CC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE59BE7A21D94999006EA7CC /* LaunchScreen.storyboard */; };
 		FE59BE8D21D94DF6006EA7CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE59BE8C21D94DF6006EA7CC /* Assets.xcassets */; };
 		FE5AE22821E0284D0098EFF0 /* UdacityConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5AE22721E0284D0098EFF0 /* UdacityConvenience.swift */; };
+		FE6074F221E504ED00998138 /* AddLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6074F121E504ED00998138 /* AddLocationViewController.swift */; };
 		FE8C4D0C21E3A704001197CE /* StudentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8C4D0B21E3A704001197CE /* StudentLocation.swift */; };
 		FE8C4D0E21E3AD1E001197CE /* ParseConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8C4D0D21E3AD1E001197CE /* ParseConvenience.swift */; };
 		FE8C4D1021E3BC86001197CE /* StudentLocationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8C4D0F21E3BC86001197CE /* StudentLocationResponse.swift */; };
@@ -34,6 +35,7 @@
 		FE59BE7D21D94999006EA7CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FE59BE8C21D94DF6006EA7CC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "../../../../GDC e requisições de rede/fromGithub/ios-nd-networking/TheMovieManagerComplete/TheMovieManager/Assets.xcassets"; sourceTree = "<group>"; };
 		FE5AE22721E0284D0098EFF0 /* UdacityConvenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdacityConvenience.swift; sourceTree = "<group>"; };
+		FE6074F121E504ED00998138 /* AddLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationViewController.swift; sourceTree = "<group>"; };
 		FE8C4D0B21E3A704001197CE /* StudentLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocation.swift; sourceTree = "<group>"; };
 		FE8C4D0D21E3AD1E001197CE /* ParseConvenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseConvenience.swift; sourceTree = "<group>"; };
 		FE8C4D0F21E3BC86001197CE /* StudentLocationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocationResponse.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				FE59BE7321D94998006EA7CC /* LoginViewController.swift */,
 				FE4E62D121E2A2AF0001BB5E /* TabBarController.swift */,
 				FEB18C3C21E2F80B00CD75F0 /* MapViewController.swift */,
+				FE6074F121E504ED00998138 /* AddLocationViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -234,6 +237,7 @@
 				FE4E62D221E2A2AF0001BB5E /* TabBarController.swift in Sources */,
 				FEDAAD1521DD116200AA3346 /* UdacityClient.swift in Sources */,
 				FE59BE7421D94998006EA7CC /* LoginViewController.swift in Sources */,
+				FE6074F221E504ED00998138 /* AddLocationViewController.swift in Sources */,
 				FEB18C3D21E2F80B00CD75F0 /* MapViewController.swift in Sources */,
 				FE59BE7221D94998006EA7CC /* AppDelegate.swift in Sources */,
 				FE8C4D1021E3BC86001197CE /* StudentLocationResponse.swift in Sources */,
