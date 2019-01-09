@@ -15,40 +15,18 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate = self
-//
-//        /* GET the location points */
-//        self.fetchAndPopulatePoints()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        /* GET the location points */
-        self.fetchAndPopulatePoints()
+    func refresh() {
+        self.populateMap()
     }
     
-    func fetchAndPopulatePoints() {
+    func populateMap() {
         /* Clear annotations */
         if !self.mapView.annotations.isEmpty { self.mapView.removeAnnotations(self.mapView.annotations) }
         
-        /* Fetch locations */
-        ParseClient.sharedInstance().getStudentsLocation { (studentsLocation, errorString) in
-            guard (errorString == nil) else {
-                print(errorString!)
-                return
-            }
-            
-            guard let studentsLocation = studentsLocation else {
-                print("Students Location null")
-                return
-            }
-            
-            DispatchQueue.main.async {
-                self.populateMap(locations: studentsLocation)
-            }
-        }
-    }
-    
-    func populateMap(locations: [StudentLocation]) {
+        /* Students Location */
+        guard let locations = ParseClient.sharedInstance().studentsLocation else { return }
         
         /* Create MKPointAnnotation */
         var annotations = [MKPointAnnotation]()

@@ -14,6 +14,43 @@ class TabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.fetchAndRefreshData()
+    }
+    
+    func fetchStudentsLocation(completionHandlerForUI: @escaping () -> Void) {
+        /* Fetch locations */
+        ParseClient.sharedInstance().getStudentsLocation { (studentsLocation, errorString) in
+            guard (errorString == nil) else {
+                print(errorString!)
+                return
+            }
+            
+            guard let studentsLocation = studentsLocation else {
+                print("Students Location null")
+                return
+            }
+            
+            /* Update singleton with new data */
+            ParseClient.sharedInstance().studentsLocation = studentsLocation
+            
+            /* Update views */
+            DispatchQueue.main.async {
+                completionHandlerForUI()
+            }
+        }
+    }
+    
+    func refreshUI() {
+        guard let mapViewController = self.viewControllers?[0] as? MapViewController else { return }
+        guard let tableViewController = self.viewControllers?[1] as? TableViewController else { return }
+        mapViewController.refresh()
+        tableViewController.refresh()
+    }
+    
+    func fetchAndRefreshData() {
+        fetchStudentsLocation {
+            self.refreshUI()
+        }
     }
 
     // MARK: Actions
@@ -33,8 +70,7 @@ class TabBarController: UITabBarController {
     }
     
     @IBAction func refreshPressed(_ sender: Any) {
-        guard let mapViewController = self.viewControllers?[0] as? MapViewController else { return }
-        mapViewController.fetchAndPopulatePoints()
+        self.fetchAndRefreshData()
     }
     
     

@@ -13,6 +13,7 @@ class ParseClient: NSObject {
     // MARK: Properties
     var session = URLSession.shared
     var objectID: String? = nil
+    var studentsLocation: [StudentLocation]? = nil
     
     // MARK: GET
     func taskForGETMethod <T : Codable> (_ method: String, parameters: [String:AnyObject], completionHandlerForGET: @escaping (_ result: T?, _ error: NSError?) -> Void) -> URLSessionDataTask {
@@ -154,7 +155,14 @@ extension ParseClient {
     /* Decode JSON with Codable */
     private func convertDataWithCompletionHandler <T : Codable> (_ data: Data, completionHandlerForConvertData: (_ result: T?, _ error: NSError?) -> Void) {
         do {
-            let parsedResult = try JSONDecoder().decode(T.self, from: data)
+            let decoder = JSONDecoder()
+            
+            /* Format date */
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+            decoder.dateDecodingStrategy = .formatted(formatter)
+            
+            let parsedResult = try decoder.decode(T.self, from: data)
             completionHandlerForConvertData(parsedResult, nil)
         } catch let error {
             print(error)

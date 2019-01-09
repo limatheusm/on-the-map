@@ -18,6 +18,6 @@ struct StudentLocation: Codable {
     let userId: String?
     let uniqueKey: String?
     let mapString: String?
-    let createdAt: String?
-    let updatedAt: String?
+    let createdAt: Date
+    let updatedAt: Date
 }
