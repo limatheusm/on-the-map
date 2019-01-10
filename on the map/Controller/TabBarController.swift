@@ -20,7 +20,7 @@ class TabBarController: UITabBarController {
     func fetchStudentsLocation(completionHandlerForUI: @escaping () -> Void) {
         /* Fetch locations */
         ParseClient.sharedInstance().getStudentsLocation { (studentsLocation, errorString) in
-            guard (errorString == nil) else {
+            guard errorString == nil else {
                 self.displayError(errorString!)
                 return
             }
@@ -87,7 +87,7 @@ class TabBarController: UITabBarController {
         let vc = storyboard!.instantiateViewController(withIdentifier: "AddLocationViewController") as! AddLocationViewController
         
         ParseClient.sharedInstance().getStudentLocation(withAccountKey: accountKey) { (studentLocation, errorString) in
-            guard (errorString == nil) else {
+            guard errorString == nil else {
                 self.displayError(errorString!)
                 return
             }

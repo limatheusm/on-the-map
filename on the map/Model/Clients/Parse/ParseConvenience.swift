@@ -20,7 +20,7 @@ extension ParseClient {
                 completion(nil, errorString)
             }
             
-            guard (error == nil) else {
+            guard error == nil else {
                 sendError(error!.localizedDescription)
                 return
             }
@@ -46,7 +46,7 @@ extension ParseClient {
                 completion(nil, errorString)
             }
             
-            guard (error == nil) else {
+            guard error == nil else {
                 sendError(error!.localizedDescription)
                 return
             }
@@ -98,7 +98,7 @@ extension ParseClient {
         
         let _ = taskFor(httpMethod: httpMethod, apiMethod: apiMethod, parameters: parameters, jsonBody: jsonBody) { (results, error) in
 
-            guard (error == nil) else {
+            guard error == nil else {
                 sendError(error!.localizedDescription)
                 return
             }

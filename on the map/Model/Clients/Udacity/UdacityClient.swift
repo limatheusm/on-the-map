@@ -33,7 +33,7 @@ class UdacityClient: NSObject {
                 completionHandlerForGET(nil, NSError(domain: "taskForGETMethod", code: 1, userInfo: userInfo))
             }
             
-            guard (error == nil) else {
+            guard error == nil else {
                 sendError("There was an error with your request: \(error!)")
                 return
             }
@@ -52,7 +52,7 @@ class UdacityClient: NSObject {
             /* GUARD: statusCode out of range? Try to get server message */
             guard statusCode >= 200 && statusCode <= 299 else {
                 self.convertDataWithCompletionHandler(data, completionHandlerForConvertData: { (result, error) in
-                    guard (error == nil) else {
+                    guard error == nil else {
                         completionHandlerForGET(nil, error)
                         return
                     }
@@ -99,7 +99,7 @@ class UdacityClient: NSObject {
             }
             
             /* GUARD: Was there an error? */
-            guard (error == nil) else {
+            guard error == nil else {
                 print(error!)
                 sendError("There was an error with your request")
                 return
@@ -119,7 +119,7 @@ class UdacityClient: NSObject {
             /* GUARD: statusCode out of range? */
             guard statusCode >= 200 && statusCode <= 299 else {
                 self.convertDataWithCompletionHandler(data, completionHandlerForConvertData: { (result, error) in
-                    guard (error == nil) else {
+                    guard error == nil else {
                         completionHandlerForPOST(nil, error)
                         return
                     }

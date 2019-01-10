@@ -61,7 +61,7 @@ extension UdacityClient {
                 completionHandlerForAuth(false, errorString)
             }
             
-            guard (error == nil) else {
+            guard error == nil else {
                 sendError(error!.localizedDescription)
                 return
             }
@@ -111,7 +111,7 @@ extension UdacityClient {
                 completion(false, errorString)
             }
             
-            guard (error == nil) else {
+            guard error == nil else {
                 sendError(error!.localizedDescription)
                 return
             }

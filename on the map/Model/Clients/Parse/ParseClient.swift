@@ -33,7 +33,7 @@ class ParseClient: NSObject {
                 completionHandlerForGET(nil, NSError(domain: "taskForGETMethod", code: 1, userInfo: userInfo))
             }
             
-            guard (error == nil) else {
+            guard error == nil else {
                 sendError("There was an error with your request: \(error!)")
                 return
             }
@@ -43,7 +43,7 @@ class ParseClient: NSObject {
                 return
             }
             
-            guard (statusCode >= 200 && statusCode <= 299) else {
+            guard statusCode >= 200 && statusCode <= 299 else {
                 sendError("Error status code: \(statusCode)")
                 return
             }
@@ -92,7 +92,7 @@ class ParseClient: NSObject {
             }
             
             /* GUARD: Was there an error? */
-            guard (error == nil) else {
+            guard error == nil else {
                 print(error!)
                 sendError("There was an error with your request")
                 return
@@ -103,7 +103,7 @@ class ParseClient: NSObject {
                 return
             }
             
-            guard (statusCode >= 200 && statusCode <= 299) else {
+            guard statusCode >= 200 && statusCode <= 299 else {
                 sendError("Error status code: \(statusCode)")
                 return
             }
