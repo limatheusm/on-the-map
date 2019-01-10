@@ -46,6 +46,11 @@ extension ParseClient {
         static let where_ = "where"
     }
     
+    struct ParametersValues {
+        static let Limit = 100
+        static let Order = "-updatedAt"
+    }
+    
     // MARK: JSON Body Keys
     struct JSONBodyKeys {
         static let uniqueKey = "uniqueKey"

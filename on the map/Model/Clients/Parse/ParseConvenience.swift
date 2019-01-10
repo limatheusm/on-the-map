@@ -12,7 +12,7 @@ extension ParseClient {
     
     func getStudentsLocation(completion: @escaping (_ studentsLocation: [StudentLocation]?, _ errorString: String?) -> Void) {
         
-        let parameters: [String:AnyObject] = [:]
+        let parameters = [ParametersKeys.limit: ParametersValues.Limit, ParametersKeys.order: ParametersValues.Order] as [String : AnyObject]
         
         let _ = taskForGETMethod(Methods.StudentLocation, parameters: parameters) { (results: StudentLocationResponse?, error) in
             func sendError(_ errorString: String) {
