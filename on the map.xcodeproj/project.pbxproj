@@ -16,6 +16,7 @@
 		FE5AE22821E0284D0098EFF0 /* UdacityConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5AE22721E0284D0098EFF0 /* UdacityConvenience.swift */; };
 		FE6074F221E504ED00998138 /* AddLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6074F121E504ED00998138 /* AddLocationViewController.swift */; };
 		FE6074F421E6379700998138 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6074F321E6379700998138 /* TableViewController.swift */; };
+		FE6074F621E6EE8D00998138 /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6074F521E6EE8D00998138 /* LoaderView.swift */; };
 		FE8C4D0C21E3A704001197CE /* StudentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8C4D0B21E3A704001197CE /* StudentLocation.swift */; };
 		FE8C4D0E21E3AD1E001197CE /* ParseConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8C4D0D21E3AD1E001197CE /* ParseConvenience.swift */; };
 		FE8C4D1021E3BC86001197CE /* StudentLocationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8C4D0F21E3BC86001197CE /* StudentLocationResponse.swift */; };
@@ -38,6 +39,7 @@
 		FE5AE22721E0284D0098EFF0 /* UdacityConvenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdacityConvenience.swift; sourceTree = "<group>"; };
 		FE6074F121E504ED00998138 /* AddLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationViewController.swift; sourceTree = "<group>"; };
 		FE6074F321E6379700998138 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		FE6074F521E6EE8D00998138 /* LoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
 		FE8C4D0B21E3A704001197CE /* StudentLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocation.swift; sourceTree = "<group>"; };
 		FE8C4D0D21E3AD1E001197CE /* ParseConvenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseConvenience.swift; sourceTree = "<group>"; };
 		FE8C4D0F21E3BC86001197CE /* StudentLocationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocationResponse.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				FE59BE7D21D94999006EA7CC /* Info.plist */,
+				FE6074F521E6EE8D00998138 /* LoaderView.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -235,6 +238,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE6074F621E6EE8D00998138 /* LoaderView.swift in Sources */,
 				FE8C4D0E21E3AD1E001197CE /* ParseConvenience.swift in Sources */,
 				FE6074F421E6379700998138 /* TableViewController.swift in Sources */,
 				FEDAAD1921DD631B00AA3346 /* ParseClient.swift in Sources */,

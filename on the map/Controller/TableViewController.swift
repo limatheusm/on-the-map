@@ -19,18 +19,11 @@ class TableViewController: UIViewController {
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        self.sortTableViewItemsByDate()
     }
     
     func refresh() {
         guard tableView != nil else { return }
         self.tableView.reloadData()
-    }
-    
-    func sortTableViewItemsByDate() {
-        guard let studentsLocation = self.parseClient.studentsLocation else { return }
-        ParseClient.sharedInstance().studentsLocation = studentsLocation.sorted { $0.createdAt.compare($1.createdAt) == .orderedDescending }
-        self.refresh()
     }
 }
 

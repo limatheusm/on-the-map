@@ -29,6 +29,12 @@ class LoginViewController: UIViewController {
         super.viewDidAppear(animated)
         errorTextLabel.text = ""
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        emailTextField.text = ""
+        passwordTextField.text = ""
+    }
 
     // MARK: Actions
     
@@ -47,7 +53,7 @@ class LoginViewController: UIViewController {
         
         self.setUIEnable(false)
         self.view.endEditing(true)
-        
+        LoaderView.show()
         UdacityClient.sharedInstance().authenticate(email: email, password: password) { (success, errorString) in
             DispatchQueue.main.async {
                 if success {
@@ -55,6 +61,7 @@ class LoginViewController: UIViewController {
                 } else {
                     self.displayError(errorString)
                 }
+                LoaderView.hide()
                 self.setUIEnable(true)
             }
         }
@@ -67,8 +74,6 @@ class LoginViewController: UIViewController {
     
     private func completeLogin() {
         errorTextLabel.text = ""
-        emailTextField.text = ""
-        passwordTextField.text = ""
         let controller = storyboard!.instantiateViewController(withIdentifier: "ManagerNavigationController") as! UINavigationController
         present(controller, animated: true, completion: nil)
     }

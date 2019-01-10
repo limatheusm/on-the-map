@@ -40,6 +40,8 @@ class AddLocationViewController: UIViewController {
     @IBAction func findLocationPressed(_ sender: Any) {
         self.view.endEditing(true)
         
+        if !self.mapView.annotations.isEmpty { self.mapView.removeAnnotations(self.mapView.annotations) }
+        
         guard let location = locationTextField.text, !location.isEmpty else {
             displayError("location field is required")
             return
@@ -48,9 +50,10 @@ class AddLocationViewController: UIViewController {
             displayError("website field is required")
             return
         }
-        
+        LoaderView.show()
         self.searchLocation(location) { (results) in
             DispatchQueue.main.async {
+                LoaderView.hide()
                 if let results = results, !results.isEmpty {
                     let mapItem = results[0]
                     self.pinPreviewLocation(mapItem: mapItem)
@@ -70,10 +73,12 @@ class AddLocationViewController: UIViewController {
     
     @IBAction func submitPressed(_ sender: Any) {
         setUIEnable(false)
+        LoaderView.show()
         ParseClient.sharedInstance().addStudentLocation(httpMethod: self.httpMethodToSubmit, mapString: locationTextField.text!, mediaURL: websiteTextField.text!, latitude: self.latitude!, longitude: self.longitude!) { (success, errorString) in
             
             DispatchQueue.main.async {
                 self.setUIEnable(true)
+                LoaderView.hide()
                 if success {
                     self.showToast(controller: self, message : "Success!", seconds: 2.0) {
                         self.dismiss(animated: true, completion: nil)

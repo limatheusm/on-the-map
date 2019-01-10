@@ -21,17 +21,19 @@ class TabBarController: UITabBarController {
         /* Fetch locations */
         ParseClient.sharedInstance().getStudentsLocation { (studentsLocation, errorString) in
             guard (errorString == nil) else {
-                print(errorString!)
+                self.displayError(errorString!)
                 return
             }
             
             guard let studentsLocation = studentsLocation else {
-                print("Students Location null")
+                self.displayError("Students Location null")
                 return
             }
             
             /* Update singleton with new data */
-            ParseClient.sharedInstance().studentsLocation = studentsLocation
+            ParseClient.sharedInstance().studentsLocation = studentsLocation.sorted {
+                $0.updatedAt.compare($1.updatedAt) == .orderedDescending
+            }
             
             /* Update views */
             DispatchQueue.main.async {
@@ -48,7 +50,9 @@ class TabBarController: UITabBarController {
     }
     
     func fetchAndRefreshData() {
+        LoaderView.show()
         fetchStudentsLocation {
+            LoaderView.hide()
             self.refreshUI()
         }
     }
@@ -56,14 +60,12 @@ class TabBarController: UITabBarController {
     // MARK: Actions
     
     @IBAction func logoutPressed(_ sender: UIBarButtonItem) {
-        print("logoutPressed")
         UdacityClient.sharedInstance().logout { (success, errorString) in
             DispatchQueue.main.async {
                 if success {
-                    print("Logout Success")
                     self.dismiss(animated: true, completion: nil)
                 } else {
-                    print("Logout Failed", errorString!)
+                    self.displayError(errorString ?? "Logout failed")
                 }
             }
         }
@@ -78,7 +80,7 @@ class TabBarController: UITabBarController {
         self.addPinButton.isEnabled = false
         /* Check if the user already has a marker on the map */
         guard let accountKey = UdacityClient.sharedInstance().accountKey else {
-            print("Account key not found")
+            self.displayError("Account key not found")
             return
         }
         
@@ -86,13 +88,7 @@ class TabBarController: UITabBarController {
         
         ParseClient.sharedInstance().getStudentLocation(withAccountKey: accountKey) { (studentLocation, errorString) in
             guard (errorString == nil) else {
-                print(errorString!)
-                return
-            }
-            
-            guard (studentLocation == nil) else {
-                vc.httpMethodToSubmit = "POST"
-                self.navigationController?.pushViewController(vc, animated: true)
+                self.displayError(errorString!)
                 return
             }
             
@@ -116,5 +112,16 @@ class TabBarController: UITabBarController {
                 }
             }
         }
+    }
+}
+
+// Helpers
+
+extension TabBarController {
+    private func displayError(_ errorString: String) {
+        print(errorString)
+        let alert = UIAlertController(title: "Ops!", message: errorString, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
 }
