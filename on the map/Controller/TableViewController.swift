@@ -30,9 +30,6 @@ class TableViewController: UIViewController {
 // MARK: TableViewDelegate & TableViewDataSource
 
 extension TableViewController: UITableViewDelegate, UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return StudentsDataSource.studentsLocation?.count ?? 0
