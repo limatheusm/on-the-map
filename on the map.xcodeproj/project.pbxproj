@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FE0F9DBA21E7B6FA00E17F0E /* StudentsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0F9DB921E7B6FA00E17F0E /* StudentsDataSource.swift */; };
 		FE4E62D221E2A2AF0001BB5E /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4E62D121E2A2AF0001BB5E /* TabBarController.swift */; };
 		FE59BE7221D94998006EA7CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE59BE7121D94998006EA7CC /* AppDelegate.swift */; };
 		FE59BE7421D94998006EA7CC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE59BE7321D94998006EA7CC /* LoginViewController.swift */; };
@@ -28,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FE0F9DB921E7B6FA00E17F0E /* StudentsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentsDataSource.swift; sourceTree = "<group>"; };
 		FE4E62D121E2A2AF0001BB5E /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		FE59BE6E21D94998006EA7CC /* on the map.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "on the map.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE59BE7121D94998006EA7CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 			children = (
 				FEDAAD0F21DD107300AA3346 /* Clients */,
 				FE8C4D0B21E3A704001197CE /* StudentLocation.swift */,
+				FE0F9DB921E7B6FA00E17F0E /* StudentsDataSource.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -246,6 +249,7 @@
 				FEDAAD1521DD116200AA3346 /* UdacityClient.swift in Sources */,
 				FE59BE7421D94998006EA7CC /* LoginViewController.swift in Sources */,
 				FE6074F221E504ED00998138 /* AddLocationViewController.swift in Sources */,
+				FE0F9DBA21E7B6FA00E17F0E /* StudentsDataSource.swift in Sources */,
 				FEB18C3D21E2F80B00CD75F0 /* MapViewController.swift in Sources */,
 				FE59BE7221D94998006EA7CC /* AppDelegate.swift in Sources */,
 				FE8C4D1021E3BC86001197CE /* StudentLocationResponse.swift in Sources */,

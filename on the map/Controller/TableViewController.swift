@@ -35,7 +35,7 @@ extension TableViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return parseClient.studentsLocation?.count ?? 0
+        return StudentsDataSource.studentsLocation?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -49,7 +49,7 @@ extension TableViewController: UITableViewDelegate, UITableViewDataSource {
         let cellReuseIdentifier = "TableViewCell"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) ?? UITableViewCell(style: .subtitle, reuseIdentifier: cellReuseIdentifier)
         
-        guard let studentsLocation = self.parseClient.studentsLocation else { return cell }
+        guard let studentsLocation = StudentsDataSource.studentsLocation else { return cell }
         let currentStudentLocation = studentsLocation[indexPath.row]
         
         /* Set cell defaults */
@@ -67,7 +67,7 @@ extension TableViewController: UITableViewDelegate, UITableViewDataSource {
     
     /* Handle touch */
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let studentsLocation = self.parseClient.studentsLocation else { return }
+        guard let studentsLocation = StudentsDataSource.studentsLocation else { return }
         let studentLocationSelected = studentsLocation[indexPath.row]
         let mediaURL = studentLocationSelected.mediaURL
         

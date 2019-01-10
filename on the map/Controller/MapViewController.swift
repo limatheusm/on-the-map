@@ -26,7 +26,7 @@ class MapViewController: UIViewController {
         if !self.mapView.annotations.isEmpty { self.mapView.removeAnnotations(self.mapView.annotations) }
         
         /* Students Location */
-        guard let locations = ParseClient.sharedInstance().studentsLocation else { return }
+        guard let locations = StudentsDataSource.studentsLocation else { return }
         
         /* Create MKPointAnnotation */
         var annotations = [MKPointAnnotation]()

@@ -31,9 +31,7 @@ class TabBarController: UITabBarController {
             }
             
             /* Update singleton with new data */
-            ParseClient.sharedInstance().studentsLocation = studentsLocation.sorted {
-                $0.updatedAt.compare($1.updatedAt) == .orderedDescending
-            }
+            StudentsDataSource.studentsLocation = studentsLocation
             
             /* Update views */
             DispatchQueue.main.async {

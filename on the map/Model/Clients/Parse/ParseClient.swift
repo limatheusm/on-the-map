@@ -13,7 +13,6 @@ class ParseClient: NSObject {
     // MARK: Properties
     var session = URLSession.shared
     var objectID: String? = nil
-    var studentsLocation: [StudentLocation]? = nil
     
     // MARK: GET
     func taskForGETMethod <T : Codable> (_ method: String, parameters: [String:AnyObject], completionHandlerForGET: @escaping (_ result: T?, _ error: NSError?) -> Void) -> URLSessionDataTask {
