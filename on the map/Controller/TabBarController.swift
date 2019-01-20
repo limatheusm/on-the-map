@@ -96,17 +96,11 @@ class TabBarController: UITabBarController {
                     vc.httpMethodToSubmit = "POST"
                     self.present(vc, animated: true, completion: nil)
                 } else {
-                    /* ALERT: Overwrite student location? */
-                    let alert = UIAlertController(title: "", message: ParseClient.Messages.askOverwriteStudentLocation, preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
-                    alert.addAction(UIAlertAction(title: "Overwrite", style: .default, handler: { (action) in
+                    self.showOverwriteAlert {
                         /* Yes */
                         vc.httpMethodToSubmit = "PUT"
                         self.present(vc, animated: true, completion: nil)
-                    }))
-                    
-                    /* Present alert */
-                    self.present(alert, animated: true, completion: nil)
+                    }
                 }
             }
         }
@@ -120,6 +114,18 @@ extension TabBarController {
         print(errorString)
         let alert = UIAlertController(title: "Ops!", message: errorString, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    private func showOverwriteAlert(completionForOverwrite: @escaping () -> Void) {
+        /* ALERT: Overwrite student location? */
+        let alert = UIAlertController(title: "", message: ParseClient.Messages.askOverwriteStudentLocation, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Overwrite", style: .default, handler: { (action) in
+            /* Yes */
+            completionForOverwrite()
+        }))
+        /* Present alert */
         self.present(alert, animated: true, completion: nil)
     }
 }
